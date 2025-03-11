@@ -2,7 +2,8 @@
 
 **Live Demo:** [https://network-simulgraf.lovable.app/](https://network-simulgraf.lovable.app/)
 
-![Demo Screenshot](path/to/demo-image.png)
+![Demo Screenshot](demo1.png)
+![Demo Screenshot](demo2.png)
 
 ## Overview
 An interactive platform to explore and compare different network types in real-time:
