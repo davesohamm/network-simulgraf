@@ -50,14 +50,14 @@ const NetworkControls = ({
                 Bandwidth Modifier
               </label>
               <span className="text-xs sm:text-sm font-medium">
-                {simulationParams.bandwidthModifier.toFixed(1)}x
+                {simulationParams.bandwidthModifier.toFixed(2)}x
               </span>
             </div>
             <input
               type="range"
-              min="0.1"
-              max="2"
-              step="0.1"
+              min="0.01"
+              max="4"
+              step="0.01"
               value={simulationParams.bandwidthModifier}
               onChange={(e) =>
                 handleParamChange("bandwidthModifier", parseFloat(e.target.value))
@@ -65,9 +65,9 @@ const NetworkControls = ({
               className="w-full h-1.5 sm:h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 transition-all duration-200"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0.1x</span>
+              <span>0.01x</span>
               <span>1x</span>
-              <span>2x</span>
+              <span>4x</span>
             </div>
           </div>
 
@@ -78,14 +78,14 @@ const NetworkControls = ({
                 Latency Modifier
               </label>
               <span className="text-xs sm:text-sm font-medium">
-                {simulationParams.latencyModifier.toFixed(1)}x
+                {simulationParams.latencyModifier.toFixed(2)}x
               </span>
             </div>
             <input
               type="range"
-              min="0.1"
-              max="2"
-              step="0.1"
+              min="0.01"
+              max="4"
+              step="0.01"
               value={simulationParams.latencyModifier}
               onChange={(e) =>
                 handleParamChange("latencyModifier", parseFloat(e.target.value))
@@ -93,9 +93,9 @@ const NetworkControls = ({
               className="w-full h-1.5 sm:h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 transition-all duration-200"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0.1x</span>
+              <span>0.01x</span>
               <span>1x</span>
-              <span>2x</span>
+              <span>4x</span>
             </div>
           </div>
 
@@ -106,14 +106,14 @@ const NetworkControls = ({
                 Packet Loss Modifier
               </label>
               <span className="text-xs sm:text-sm font-medium">
-                {simulationParams.packetLossModifier.toFixed(1)}x
+                {simulationParams.packetLossModifier.toFixed(2)}x
               </span>
             </div>
             <input
               type="range"
-              min="0.1"
-              max="2"
-              step="0.1"
+              min="0.01"
+              max="4"
+              step="0.01"
               value={simulationParams.packetLossModifier}
               onChange={(e) =>
                 handleParamChange("packetLossModifier", parseFloat(e.target.value))
@@ -121,9 +121,9 @@ const NetworkControls = ({
               className="w-full h-1.5 sm:h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 transition-all duration-200"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0.1x</span>
+              <span>0.01x</span>
               <span>1x</span>
-              <span>2x</span>
+              <span>4x</span>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ const NetworkMetrics = ({ networkType, simulationParams }: NetworkMetricsProps) 
       icon: <Gauge className="h-3 w-3 sm:h-4 sm:w-4" />,
       color: "text-blue-500",
       change: Math.random() > 0.5 ? "up" : "down",
-      changeValue: `${(Math.random() * 5).toFixed(1)}%`,
+      changeValue: `${(Math.random() * 5).toFixed(2)}%`,
     },
     {
       label: "Latency",
@@ -57,15 +57,15 @@ const NetworkMetrics = ({ networkType, simulationParams }: NetworkMetricsProps) 
       icon: <Clock className="h-3 w-3 sm:h-4 sm:w-4" />,
       color: "text-amber-500",
       change: Math.random() > 0.5 ? "up" : "down",
-      changeValue: `${(Math.random() * 3).toFixed(1)}%`,
+      changeValue: `${(Math.random() * 3).toFixed(2)}%`,
     },
     {
       label: "Packet Loss",
-      value: `${metrics.packetLoss}%`,
+      value: `${metrics.packetLoss.toFixed(2)}%`,
       icon: <AlertTriangle className="h-3 w-3 sm:h-4 sm:w-4" />,
       color: "text-red-500",
       change: Math.random() > 0.5 ? "up" : "down",
-      changeValue: `${(Math.random() * 2).toFixed(1)}%`,
+      changeValue: `${(Math.random() * 2).toFixed(2)}%`,
     },
     {
       label: "Packets Sent",
@@ -89,7 +89,7 @@ const NetworkMetrics = ({ networkType, simulationParams }: NetworkMetricsProps) 
       icon: <Activity className="h-3 w-3 sm:h-4 sm:w-4" />,
       color: "text-purple-500",
       change: Math.random() > 0.5 ? "up" : "down",
-      changeValue: `${(Math.random() * 1).toFixed(1)}%`,
+      changeValue: `${(Math.random() * 1).toFixed(2)}%`,
     },
   ];
 
