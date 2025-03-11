@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 45% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 100% 50%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -32,22 +33,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -61,7 +55,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 210 100% 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -97,5 +91,107 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-lg bg-white/60 dark:bg-black/60 border border-white/20 dark:border-gray-800/30 shadow-lg;
+  }
+  
+  .network-node {
+    @apply rounded-full bg-primary shadow-lg flex items-center justify-center text-primary-foreground;
+  }
+  
+  .network-link {
+    @apply stroke-primary/50 stroke-[2px] stroke-dasharray-[5,5] fill-none;
+  }
+  
+  .network-data-packet {
+    @apply absolute w-2 h-2 rounded-full bg-primary shadow-md;
+  }
+  
+  .parameter-slider {
+    @apply appearance-none w-full h-2 rounded-full bg-gray-200 dark:bg-gray-700;
+  }
+  
+  .parameter-slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-primary cursor-pointer;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Network Type Colors */
+.network-lan {
+  @apply text-[#3498db] border-[#3498db] bg-[#3498db]/10;
+}
+.network-man {
+  @apply text-[#9b59b6] border-[#9b59b6] bg-[#9b59b6]/10;
+}
+.network-wan {
+  @apply text-[#e74c3c] border-[#e74c3c] bg-[#e74c3c]/10;
+}
+.network-pan {
+  @apply text-[#2ecc71] border-[#2ecc71] bg-[#2ecc71]/10;
+}
+.network-can {
+  @apply text-[#f39c12] border-[#f39c12] bg-[#f39c12]/10;
+}
+.network-gan {
+  @apply text-[#1abc9c] border-[#1abc9c] bg-[#1abc9c]/10;
+}
+.network-wlan {
+  @apply text-[#d35400] border-[#d35400] bg-[#d35400]/10;
+}
+.network-epn {
+  @apply text-[#8e44ad] border-[#8e44ad] bg-[#8e44ad]/10;
+}
+.network-vpn {
+  @apply text-[#2c3e50] border-[#2c3e50] bg-[#2c3e50]/10;
+}
+.network-san {
+  @apply text-[#16a085] border-[#16a085] bg-[#16a085]/10;
 }
