@@ -1,4 +1,3 @@
-
 import { useCallback } from "react";
 import { NetworkType, networkData } from "@/lib/network-data";
 import { GlassPanel } from "@/components/ui/glass-panel";
@@ -8,9 +7,8 @@ import {
   Cpu, 
   Database, 
   Globe, 
-  Lan, 
-  Lock, 
   Network, 
+  Lock, 
   Router, 
   Server, 
   Wifi, 
@@ -27,7 +25,7 @@ interface NetworkSelectorProps {
 const NetworkSelector = ({ selectedNetwork, setSelectedNetwork }: NetworkSelectorProps) => {
   const getNetworkIcon = useCallback((type: NetworkType) => {
     const iconMap = {
-      lan: <Lan className="mr-2 h-4 w-4" />,
+      lan: <Network className="mr-2 h-4 w-4" />,
       man: <Network className="mr-2 h-4 w-4" />,
       wan: <Globe className="mr-2 h-4 w-4" />,
       pan: <Bluetooth className="mr-2 h-4 w-4" />,
