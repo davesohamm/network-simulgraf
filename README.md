@@ -1,7 +1,7 @@
 # Network Simulator & Visualizer
 
 **Live Demo:** [https://network-simulgraf.lovable.app/](https://network-simulgraf.lovable.app/)
-**Read the blog on:**[medium](https://medium.com/@davesohamm/how-i-built-a-network-simulator-using-loveable-ai-and-why-ai-is-the-future-of-coding-4a3905f89246)
+**Read the blog on:** [medium](https://medium.com/@davesohamm/how-i-built-a-network-simulator-using-loveable-ai-and-why-ai-is-the-future-of-coding-4a3905f89246)
 
 ![Demo Screenshot](demo1.png)
 ![Demo Screenshot](demo2.png)
