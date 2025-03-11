@@ -23,7 +23,7 @@ const GlassPanel = ({
   return (
     <div
       className={cn(
-        "rounded-xl border shadow-md transition-all duration-300 ease-in-out",
+        "rounded-lg sm:rounded-xl border shadow-md transition-all duration-300 ease-in-out hover:shadow-lg",
         intensityClasses[intensity],
         className
       )}

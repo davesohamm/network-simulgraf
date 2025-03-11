@@ -106,15 +106,15 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
   const getNodeIcon = (type: string) => {
     switch (type) {
       case 'device':
-        return <Monitor className="h-4 w-4" />;
+        return <Monitor className="h-3 w-3 sm:h-4 sm:w-4" />;
       case 'router':
-        return <Router className="h-4 w-4" />;
+        return <Router className="h-3 w-3 sm:h-4 sm:w-4" />;
       case 'server':
-        return <Server className="h-4 w-4" />;
+        return <Server className="h-3 w-3 sm:h-4 sm:w-4" />;
       case 'cloud':
-        return <Cloud className="h-4 w-4" />;
+        return <Cloud className="h-3 w-3 sm:h-4 sm:w-4" />;
       default:
-        return <Monitor className="h-4 w-4" />;
+        return <Monitor className="h-3 w-3 sm:h-4 sm:w-4" />;
     }
   };
 
@@ -145,35 +145,35 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
 
   return (
     <GlassPanel 
-      className={`${isFullscreen ? 'fixed inset-4 z-50' : 'h-full'} flex flex-col`}
+      className={`${isFullscreen ? 'fixed inset-4 z-50' : 'h-full'} flex flex-col transition-all duration-300`}
       intensity={isFullscreen ? "heavy" : "medium"}
     >
-      <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800">
+      <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-100 dark:border-gray-800">
         <div className="flex items-center">
           <div 
-            className={`w-3 h-3 rounded-full mr-2 ${isPaused ? 'bg-yellow-500' : 'bg-green-500 animate-pulse'}`}
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2 ${isPaused ? 'bg-yellow-500' : 'bg-green-500 animate-pulse'}`}
           />
-          <h3 className="text-lg font-medium">{network.name} Simulation</h3>
+          <h3 className="text-base sm:text-lg font-medium">{network.name} Simulation</h3>
         </div>
         
         <div className="flex gap-2">
           <button
             onClick={togglePause}
-            className="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="p-1 sm:p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label={isPaused ? "Resume simulation" : "Pause simulation"}
           >
-            {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+            {isPaused ? <Play className="h-3 w-3 sm:h-4 sm:w-4" /> : <Pause className="h-3 w-3 sm:h-4 sm:w-4" />}
           </button>
           
           <button
             onClick={toggleFullscreen}
-            className="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="p-1 sm:p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
           >
             {isFullscreen ? (
-              <Minimize2 className="h-4 w-4" />
+              <Minimize2 className="h-3 w-3 sm:h-4 sm:w-4" />
             ) : (
-              <Maximize2 className="h-4 w-4" />
+              <Maximize2 className="h-3 w-3 sm:h-4 sm:w-4" />
             )}
           </button>
         </div>
@@ -206,14 +206,14 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
                 transform={`translate(${node.x}, ${node.y})`}
                 onMouseEnter={() => setHoveredNode(node)}
                 onMouseLeave={() => setHoveredNode(null)}
-                className="cursor-pointer"
+                className="cursor-pointer transition-transform hover:scale-110 duration-300"
               >
                 <circle
-                  r={node.type === 'router' ? 16 : node.type === 'server' ? 18 : node.type === 'cloud' ? 20 : 14}
+                  r={node.type === 'router' ? 14 : node.type === 'server' ? 16 : node.type === 'cloud' ? 18 : 12}
                   fill={node.type === 'cloud' ? 'rgba(255, 255, 255, 0.8)' : 'white'}
                   stroke={network.color}
                   strokeWidth="2"
-                  className={node.type === 'device' ? 'animate-pulse-slow' : ''}
+                  className={`transition-all duration-300 ${node.type === 'device' ? 'animate-pulse-slow' : ''}`}
                 />
                 
                 <foreignObject
@@ -241,7 +241,7 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
                     key={packet.id}
                     cx={position.x}
                     cy={position.y}
-                    r={3 + (packet.size / 5000)}
+                    r={2 + (packet.size / 5000)}
                     fill={simulationParams.encryption ? "#3498db" : "#e74c3c"}
                     className="animate-pulse shadow-md"
                     opacity={0.8}
@@ -254,7 +254,7 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
         {/* Node tooltip */}
         {hoveredNode && (
           <div
-            className="absolute bg-white dark:bg-gray-800 p-2 rounded-md shadow-md text-xs border border-gray-200 dark:border-gray-700 z-20"
+            className="absolute bg-white dark:bg-gray-800 p-1.5 sm:p-2 rounded-md shadow-md text-xs border border-gray-200 dark:border-gray-700 z-20 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90 animate-fade-in"
             style={{
               left: `${hoveredNode.x + 20}px`,
               top: `${hoveredNode.y}px`,
@@ -266,10 +266,10 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
         )}
       </div>
       
-      <div className="flex justify-between items-center px-4 py-2 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500">
-        <div>Network Range: {network.range} km</div>
-        <div>Base Bandwidth: {network.bandwidth} Mbps</div>
-        <div>Base Latency: {network.latency} ms</div>
+      <div className="hidden sm:flex justify-between items-center px-4 py-2 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500">
+        <div>Range: {network.range} km</div>
+        <div>Bandwidth: {network.bandwidth} Mbps</div>
+        <div>Latency: {network.latency} ms</div>
         <div>
           {network.encryption ? (
             <span className="flex items-center text-green-500">
@@ -278,6 +278,12 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
           ) : (
             <span>Not Encrypted</span>
           )}
+        </div>
+      </div>
+      <div className="flex sm:hidden justify-center items-center px-3 py-1.5 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500">
+        <div className={network.encryption ? "text-green-500" : ""}>
+          {network.encryption ? <Lock className="h-3 w-3 inline mr-1" /> : null}
+          {network.encryption ? "Encrypted" : "Not Encrypted"}
         </div>
       </div>
     </GlassPanel>
