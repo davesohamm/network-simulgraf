@@ -12,7 +12,8 @@ import {
   Maximize2, 
   Minimize2, 
   Play, 
-  Pause 
+  Pause,
+  Lock
 } from "lucide-react";
 
 interface Node {
@@ -194,7 +195,6 @@ const NetworkVisualizer = ({ networkType, simulationParams }: NetworkVisualizerP
                   x2={target.x}
                   y2={target.y}
                   className="network-link"
-                  strokeDasharray="5,5"
                 />
               );
             })}

@@ -150,6 +150,9 @@ export default {
 			},
 			backdropBlur: {
 				'xs': '2px',
+			},
+			strokeDasharray: {
+				'5,5': '5 5',
 			}
 		}
 	},
